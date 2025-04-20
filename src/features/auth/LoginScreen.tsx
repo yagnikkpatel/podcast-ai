@@ -1,8 +1,16 @@
-import {View, Text, StyleSheet, Image, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useState} from 'react';
 import {screenHeight, screenWidth} from '../../utils/Scaling';
 import {Colors} from '../../utils/Constants';
 import CustomText from '../../components/ui/CustomText';
+import {navigate} from '../../utils/NavigationUtils';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -15,7 +23,7 @@ const LoginScreen = () => {
         style={styles.logoImage}
       />
       <CustomText variant="h3" style={styles.header}>
-        Login
+        Sign In
       </CustomText>
 
       <TextInput
@@ -34,6 +42,18 @@ const LoginScreen = () => {
         secureTextEntry
         onChangeText={setPassword}
       />
+
+      <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <CustomText variant="h5" style={styles.buttonText}>
+          {false ? 'Logging in...' : 'Login'}
+        </CustomText>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigate('RegisterScreen')}>
+        <CustomText variant="h6" style={styles.signUpText}>
+          Don't have an account? Sign Up
+        </CustomText>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -76,6 +96,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.background,
+    fontWeight: '500',
   },
   signUpText: {
     marginTop: 15,

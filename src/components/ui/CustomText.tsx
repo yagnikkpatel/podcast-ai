@@ -83,7 +83,7 @@ const CustomText: React.FC<Props> = ({
       computedFontSize =
         Platform.OS === 'android'
           ? RFValue(fontSize || 12)
-          : RFValue(fontSize || 10);
+          : RFValue(fontSize || 12);
       break;
 
     case 'h7':
